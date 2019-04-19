@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,400,700');
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Montserrat', sans-serif;
+	color: #212121;
+	letter-spacing: 1pt;
+
+}
+
+.container {
+	max-width: 1366px;
+	min-width: 540px;
+	margin: 0 auto;
+}
+
+.header {
+	background: #f5f5f5;
+	padding: 0 7%;
+	
+}
+
+.header .menu {
+	height: 150px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header .menu > img {
+	width: 185px;
+	height: 22px;
+}
+
+.menu > ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.menu > ul > li {
+	text-transform: uppercase;
+	padding-right: 25px;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 1.2em;
+	color: #8c8c8c;
+}
+
+.menu li > a {
+	text-decoration: none;
+	color: #8c8c8c;
+}
+
+.header > h1 {
+	padding: 0;
+	margin: 0;
+	font-weight: 100;
+	font-size: 62px;
+	line-height: 1.2;
+	color: #212121;
+	padding: 35px 0 40px 0; 
+}
+
+.menu li > a:hover {
+	/*font-weight: 700;*/
+	border-bottom: 3px solid #212121;
+	color: #212121; 
+	/*transition: all 0.2s ease;*/
+	text-shadow: -0.7px 0 #212121, 0 0.7px #212121, 0.7px 0 #212121, 0 -0.7px #212121;
+}
+
+.finde:hover {
+	border: 0 !important;
+}
+
+.content .menu {
+	padding: 70px 7% 50px 7%;
+	position: relative;
+}
+
+.content .menu ul > li{
+	font-size: 18px;
+	line-height: 1.2;
+	padding-bottom: 22px;
+	font-weight: 700;
+	color: #6c6c6c;
+}
+
+.content .menu ul > li > a {
+	padding-bottom: 20px;
+}
+
+.content .menu:after {
+	position: absolute;
+	content: "";
+	height: 1px;
+	width: 20%;
+	background: #6c6c6c;
+}
+
+.gamburger {
+	display: none;
+}
+
+.gamburger div {
+	width: 45px;
+	height: 4px;
+	background: #363636;
+	margin-bottom: 7px;
+	display: block;
+	border-radius: 2px;	
+}
+
+@media screen and (max-device-width: 1020px) {
+	.gamburger {
+	display: block;
+	}
+
+	.header .menu ul {
+		display: none;
+	}
+	.preview {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+
+@media screen and (max-device-width: 740px) {
+	.content .menu ul {
+		display: block;
+	}
+
+	.prod {
+		display: flex !important;
+		flex-direction: column;
+		align-items: center;
+		/*justify-content: center !important;*/
+	} 
+
+	.content .menu:after {
+		display: none;
+	}
+}
+
+
+
+.catalog {
+	padding: 0 100px;
+	display: flex;
+	flex-direction: column;
+}
+
+
+.prod {
+	display: inline-block;
+	/*justify-content: space-between;*/
+	margin-bottom: 30px;
+}
+
+.prod img {
+	padding: 4px;
+	margin: 0;
+	width: 370px;
+	height: 370px;	
+}
+
+.arrows img {
+	width: 42px;
+	height: 29px;
+}
+
+.arrows {
+	display: flex;
+	justify-content: center;
+	padding: 40px 0 130px 0;
+}
+
+
+/*previewes*/
+.preview {
+		display: flex;
+		justify-content: space-between;
+		align-content: center;
+
+}
+
+.preview > div {
+	display: flex;
+	height: 680px;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.prod-1 {
+	background: #e8e9eb;
+
+}
+
+.prod-1 > img {
+	width: 215px;
+	height: 589px;
+
+}
+
+.prod-2 {
+	background: #f7f7f7;
+}
+
+.prod-2 img {
+	width: 249px;
+	height: 507px;
+}
+
+.preview h5 {
+	font-size: 18px;
+	color: #1e88e5;
+	margin: 0;
+	padding: 0;
+}
+
+.preview h3 {
+	font-size: 36px;
+	margin: 14px 0;
+	padding: 0;
+	font-weight: 700;
+}
+
+.preview h6 {
+	font-size: 14px;
+	line-height: 24px;
+	color: #6c6c6c;
+	margin: 0;
+	padding: 0;
+	font-weight: 400;
+}
+
+.preview > div > div {
+	margin: 0 40px;
+}
+
+.prod-button {
+	font-size: 18px;
+	background: #fff;
+	font-weight: 700;
+	width: 210px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 30px;
+	border-radius: 30px; 
+	box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+}
+
+.prod-button img {
+	padding-left: 20px;
+	width: 8px;
+	height: 12px;
+	display: none;
+	}
+
+	a {
+		text-decoration: none;
+		color: #212121;
+	}
+
+	.preview a:hover .prod-button {
+		background: #1e88e5 url('img/v.png') no-repeat center right 30px;
+		/*transition: all 0.4s ease;*/
+	}
+
+/*.preview a:hover .prod-button img {
+	display: block;
+}*/
+
+	.footer {
+		padding-top: 100px;
+		background: #f7f7f7;
+
+	}
+
+		.footer img {
+			max-width: 100%;
+		}
