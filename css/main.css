@@ -71,7 +71,7 @@
     position: relative !important;
     padding: 40px 0 60px 0 !important; }
   .main-nav {
-    width: 40% !important;
+    width: 30% !important;
     min-width: 130px;
     -webkit-box-align: start !important;
     -webkit-align-items: flex-start !important;
@@ -90,7 +90,7 @@
   .burger {
     visibility: visible !important;
     position: fixed;
-    left: 6%;
+    left: 30px;
     top: 65px;
     z-index: 5;}
   .h1 {
