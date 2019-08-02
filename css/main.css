@@ -71,7 +71,7 @@
     position: relative !important;
     padding: 40px 0 60px 0 !important; }
   .main-nav {
-    width:  0% !important;
+    width: 40% !important;
     min-width: 130px;
     -webkit-box-align: start !important;
     -webkit-align-items: flex-start !important;
