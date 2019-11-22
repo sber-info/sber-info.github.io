@@ -30,12 +30,13 @@
                 </header>
 
                 <main class="columns">
+
                     <div class="column">
                         <ul class="cards-list">
                             <li class="cards-item">
-                                <div class="card" @click="f">
-                                    <span class="card-title">{{ title }}</span>
-                                    <p class="card-text">{{ text }}</p>
+                                <div class="card" v-for="card in cards"  @click="translate" :key="">
+                                    <span class="card-title">{{ reverseCard }}</span>
+                                    <p class="card-text">{{ card.sourceText }}</p>
                                 </div>
                             </li>
                         </ul>
@@ -62,11 +63,15 @@
                             </li>
                         </ul>
                     </div>
+
                 </main>
+
+
             </div>
         </div>
     </section>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- <script src="https://unpkg.com/axios@0.19.0/dist/axios.min.js"></script> -->
     <script src="js/index.js"></script>
 </body>
 
