@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New phrases for today</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <section class="main-content-wrapper" id="app">
+        <div class="container">
+            <div class="content-wrapper">
+
+                <header class="header">
+                    <div class="header-date">
+                        <span class="header-date__value date">5</span>
+                        <span class="header-date__value month">Jan</span>
+                    </div>
+                    <h2 class="header-title">New phrases for today</h2>
+                    <div class="controls">
+                        <img class="info" src="img/info.png" alt="">
+                        <button title="Create new card" class="header-btn">New card</button>
+                    </div>
+                </header>
+
+                <main class="columns">
+                    <div class="column">
+                        <ul class="cards-list">
+                            <li class="cards-item">
+                                <div class="card" @click="f">
+                                    <span class="card-title">{{ title }}</span>
+                                    <p class="card-text">{{ text }}</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="column">
+                        <ul class="cards-list">
+                            <li class="cards-item">
+                                <div class="card">
+                                    <span class="card-title">{{ title }}</span>
+                                    <p class="card-text">{{ text }}</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="column">
+                        <ul class="cards-list">
+                            <li class="cards-item">
+                                <div class="card">
+                                    <span class="card-title">{{ title }}</span>
+                                    <p class="card-text">{{ text }}</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
