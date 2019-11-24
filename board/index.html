@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
-
 </head>
 
 <body>
@@ -19,8 +18,8 @@
 
                 <header class="header">
                     <div class="header-date">
-                        <span class="header-date__value date">5</span>
-                        <span class="header-date__value month">Jan</span>
+                        <span class="header-date__value date">{{calcDate}}</span>
+                        <span class="header-date__value month">{{calcMonth}}</span>
                     </div>
                     <h2 class="header-title">New phrases for today</h2>
                     <div class="controls">
@@ -30,19 +29,19 @@
                 </header>
 
                 <main class="columns">
-
-                    <div class="column">
+                    <!-- column1 { -->
+                    <div class="column" id="col1">
                         <ul class="cards-list">
-                            <li class="cards-item">
-                                <div class="card" v-for="card in cards"  @click="translate" :key="">
+                            <li v-for="card in cards" class="cards-item" :key="">
+                                <div class="card" @click="translate(card)">
                                     <span class="card-title">{{ reverseCard }}</span>
-                                    <p class="card-text">{{ card.sourceText }}</p>
+                                    <p class="card-text">{{ backTr(card) }}</p>
                                 </div>
                             </li>
                         </ul>
                     </div>
-
-                    <div class="column">
+                    <!-- column1 } -->
+                    <div class="column" id="col2">
                         <ul class="cards-list">
                             <li class="cards-item">
                                 <div class="card">
@@ -53,7 +52,7 @@
                         </ul>
                     </div>
 
-                    <div class="column">
+                    <div class="column" id="col3">
                         <ul class="cards-list">
                             <li class="cards-item">
                                 <div class="card">

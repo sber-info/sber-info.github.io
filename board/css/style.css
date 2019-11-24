@@ -111,7 +111,8 @@ body {
 .column {
     width: 33.3%;
     border: 1px dashed #eee;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
 }
 
 .cards-list {
@@ -126,7 +127,7 @@ body {
 .card {
     padding: 12px;
     margin: 10px;
-    background-color: red;
+    background-color: paleturquoise;
     border-radius: 3px;
     text-align: center;
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
