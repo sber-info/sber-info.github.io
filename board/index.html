@@ -34,8 +34,8 @@
                         <ul class="cards-list">
                             <li v-for="card in cards" class="cards-item" :key="">
                                 <div class="card" @click="translate(card)">
-                                    <span class="card-title">{{ reverseCard }}</span>
-                                    <p class="card-text">{{ backTr(card) }}</p>
+                                    <span class="card-title">{{ card.theme }} {{reverseCard}}</span>
+                                    <p class="card-text">{{ text(card) }} </p>
                                 </div>
                             </li>
                         </ul>
