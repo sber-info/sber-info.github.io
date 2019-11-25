@@ -37,10 +37,10 @@
                     <!-- column1 { -->
                     <div class="column" id="col1" ref="col1">
                         <ul class="cards-list">
-                            <li v-for="(card, index) in cards" class="cards-item" :key="">
-                                <div class="card" @click="translate(card)">
-                                    <span class="card-title">{{ card.theme }}</span>
-                                    <p class="card-text">{{rev(card)}}</p>
+                            <li v-for="(card) in cards" class="cards-item" :key="card.id" :id="card.id">
+                                <div class="card" :class="{'card-reverse': card.rev}" @click="translate(card)" @mouseover="hoverOn(card)" @mouseleave="hoverOf(card)">
+                                    <span class="card-title" :class="{'card-text-reverse': card.rev}">{{ card.theme }}</span>
+                                    <p class="card-text" :class="{'card-text-reverse': card.rev}">{{rev(card)}}</p>
                                 </div>
                             </li>
                         </ul>

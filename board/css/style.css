@@ -131,17 +131,31 @@ body {
     border-radius: 3px;
     text-align: center;
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
-    transition: .3s;
+    transition: .5s;
     font-size: 14px;
 }
 
-.card:hover {
+.card-zoom {
     transform: scale(1.1);
 }
 
+/* .card:hover {
+    transform: scale(1.05);
+} */
+
 .card-title {
+    display: block;
     font-weight: 700;
 }
+
+.card-text-reverse {
+    transform: rotateY(180deg);
+}
+
+.card-text {
+    margin: 10px 0 0 0;
+}
+
 @media screen and (max-width:800px) {
     .columns {
         padding: 0 3%;
@@ -150,3 +164,11 @@ body {
         margin-right: 5%;
     }
 }
+
+/* Animation classes */
+
+.card-reverse {
+    transform: rotateY(180deg);
+    filter: brightness(1.2)
+}
+
