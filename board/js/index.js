@@ -1,10 +1,6 @@
 let app = new Vue({
     el: '#app',
     data: {
-        title: 'Test',
-        // text: 'Text Text Text',
-        date: 5,
-        month: 'Jun',
         reverseCard: false,
         cards: null,
         err: '',
@@ -12,12 +8,14 @@ let app = new Vue({
 
     computed: {
         calcDate() {
-            return this.date = new Date().getDate()
+            return new Date().getDate()
         },
         calcMonth() {
-            return this.month = new Date().toLocaleString('en', { month: 'short' })
+            return new Date().toLocaleString('en', { month: 'short' })
         },
     },
+
+    watch: {},
 
     created: {},
 
@@ -26,26 +24,22 @@ let app = new Vue({
             try {
                 this.cards = await fetch('https://raw.githubusercontent.com/sber-info/sber-info.github.io/master/board/json/Phrases.json')
                     .then(data => data.json())
-                    // this.cards.forEach(el => {
-                    //     el.rev=false
-                    // });
             }
             catch {
                 this.err = error
             }
         },
+
         translate(card) {
-            card.rev = !card.rev
-            this.reverseCard = !this.reverseCard
-           
-            setTimeout(() => {
-                card.rev = false
-                this.reverseCard=false
-            }, 3000);
+            Vue.set(card, 'rev', !card.rev)
+            this.cards.push(card)
             return
         },
 
-        text(card) {
+        rev(card) {
+            setTimeout(() => {
+                card.rev = false
+            }, 3000);
             return card.rev ? card.translation : card.sourceText
         },
 
@@ -60,9 +54,6 @@ let app = new Vue({
 
     async mounted() {
         await this.getData()
-        // this.cards.forEach(el => {
-        //     el.rev=false
-        // });
         //сортировака 3х массивов
     }
 })  
