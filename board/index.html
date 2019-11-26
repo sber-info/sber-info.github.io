@@ -29,24 +29,47 @@
                 </header>
 
                 <main class="columns">
+
+
+
+
+
                     <!-- column1 { -->
-                    <div class="column" id="col1">
+                    <div class="column" id="col1" ref="col1">
                         <ul class="cards-list">
+<<<<<<< HEAD
                             <li v-for="(card, index) in cards" class="cards-item" :key="index+1" :id="index+1">
                                 <div class="card" @click="translate(card)">
                                     <span class="card-title">{{index+1}}. {{ card.theme }}</span>
                                     <p class="card-text">{{ text(card) }}</p>
+=======
+                            <li v-for="(card) in cards" class="cards-item" :key="card.id" :id="card.id">
+                                <div class="card" :class="{'card-reverse': card.rev}" @click="translate(card)" @mouseover="hoverOn(card)" @mouseleave="hoverOf(card)">
+                                    <span class="card-title" :class="{'card-text-reverse': card.rev}">{{ card.theme }}</span>
+                                    <p class="card-text" :class="{'card-text-reverse': card.rev}">{{rev(card)}}</p>
+>>>>>>> ada0539dbe38fca7e068c7d2adae8630e12b1581
                                 </div>
                             </li>
                         </ul>
                     </div>
                     <!-- column1 } -->
+
+
+
+
+
+
                     <div class="column" id="col2">
                         <ul class="cards-list">
                             <li class="cards-item">
                                 <div class="card">
+<<<<<<< HEAD
                                     <span class="card-title">Title</span>
                                     <p class="card-text">Text</p>
+=======
+                                    <span class="card-title">theme</span>
+                                    <p class="card-text">TEXT</p>
+>>>>>>> ada0539dbe38fca7e068c7d2adae8630e12b1581
                                 </div>
                             </li>
                         </ul>
@@ -56,15 +79,19 @@
                         <ul class="cards-list">
                             <li class="cards-item">
                                 <div class="card">
+<<<<<<< HEAD
                                     <span class="card-title">Title</span>
                                     <p class="card-text">Text</p>
+=======
+                                    <span class="card-title">theme</span>
+                                    <p class="card-text">TEXT</p>
+>>>>>>> ada0539dbe38fca7e068c7d2adae8630e12b1581
                                 </div>
                             </li>
                         </ul>
                     </div>
 
                 </main>
-
 
             </div>
         </div>

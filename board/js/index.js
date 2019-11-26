@@ -4,6 +4,7 @@ let app = new Vue({
         reverseCard: false,
         cards: null,
         err: '',
+        id: 1,
     },
 
     computed: {
@@ -15,6 +16,8 @@ let app = new Vue({
         },
     },
 
+    watch: {},
+
     created: {},
 
     methods: {
@@ -22,29 +25,41 @@ let app = new Vue({
             try {
                 this.cards = await fetch('https://raw.githubusercontent.com/sber-info/sber-info.github.io/master/board/json/Phrases.json')
                     .then(data => data.json())
-                    // this.cards.forEach(el => {
-                    //     el.rev=false
-                    // });
+                    
+                    this.cards.forEach(el => {
+                        el.id=this.id++
+                        console.log(el.id)
+                    });
             }
             catch {
                 this.err = error
             }
         },
+
         translate(card) {
-            card.rev = !card.rev
-            this.reverseCard = !this.reverseCard
-           
+            Vue.set(card, 'rev', !card.rev)
+            this.cards.push(card)
+            this.cards.pop(card)
             setTimeout(() => {
                 card.rev = false
-                this.reverseCard=false
             }, 3000);
             return
         },
 
-        text(card) {
+        rev(card) {
             return card.rev ? card.translation : card.sourceText
              
         },
+
+        hoverOn (card) {
+        //    document.getElementById(card.id).style.transform='scale(1.1)'
+
+           document.getElementById(card.id).style.cssText="transform: scale(1.1); transition: .5s;"
+        },
+
+        hoverOf (card) {
+            document.getElementById(card.id).style.transform='scale(1)'
+         },
 
         sortByWords() {
             // this.cards.sort((a, b) => {
@@ -53,13 +68,11 @@ let app = new Vue({
             // this.cards.sort()
             // return this.cards
         },
+        
     },
 
     async mounted() {
         await this.getData()
-        // this.cards.forEach(el => {
-        //     el.rev=false
-        // });
         //сортировака 3х массивов
-    }
+    },
 })  
