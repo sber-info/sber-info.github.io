@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>New phrases for today</title>
     <link rel="stylesheet" href="css/style.css">
@@ -39,7 +39,11 @@
                         <ul class="cards-list">
                             <li v-for="(card) in cards" class="cards-item" :key="card.id" :id="card.id">
                                 <div class="card" :class="{'card-reverse': card.rev}" @click="translate(card)" @mouseover="hoverOn(card)" @mouseleave="hoverOf(card)">
+<<<<<<< HEAD
                                     <span class="card-title" :class="{'card-text-reverse': card.rev}">{{ card.id }}. {{ card.theme }}</span>
+=======
+                                    <span class="card-title" :class="{'card-text-reverse': card.rev}">{{card.id}}. {{ card.theme }}</span>
+>>>>>>> 0526438d7cc7046279c987f995c2ea30eb991243
                                     <p class="card-text" :class="{'card-text-reverse': card.rev}">{{rev(card)}}</p>
                                 </div>
                             </li>

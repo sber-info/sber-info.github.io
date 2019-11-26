@@ -25,11 +25,19 @@ let app = new Vue({
             try {
                 this.cards = await fetch('https://raw.githubusercontent.com/sber-info/sber-info.github.io/master/board/json/Phrases.json')
                     .then(data => data.json())
+<<<<<<< HEAD
                     
                     // this.cards.forEach(el => {
                     //     el.id=this.id++
                     //     console.log(el.id)
                     // });
+=======
+
+                this.cards.forEach(el => {
+                    el.id = this.id++
+                    console.log(el.id)
+                });
+>>>>>>> 0526438d7cc7046279c987f995c2ea30eb991243
             }
             catch {
                 this.err = error
@@ -48,17 +56,16 @@ let app = new Vue({
 
         rev(card) {
             return card.rev ? card.translation : card.sourceText
+
         },
 
-        hoverOn (card) {
-        //    document.getElementById(card.id).style.transform='scale(1.1)'
-
-           document.getElementById(card.id).style.cssText="transform: scale(1.1); transition: .5s;"
+        hoverOn(card) {
+            document.getElementById(card.id).style.cssText = "transform: scale(1.1); transition: .5s;"
         },
 
-        hoverOf (card) {
-            document.getElementById(card.id).style.transform='scale(1)'
-         },
+        hoverOf(card) {
+            document.getElementById(card.id).style.transform = 'scale(1)'
+        },
 
         sortByWords() {
             // this.cards.sort((a, b) => {
@@ -67,7 +74,7 @@ let app = new Vue({
             // this.cards.sort()
             // return this.cards
         },
-        
+
     },
 
     async mounted() {

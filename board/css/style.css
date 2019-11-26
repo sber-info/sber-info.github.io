@@ -9,6 +9,8 @@ body {
     font-display: column;
     align-items: center;
     min-height: 160px;
+    padding: 20px 0;
+    box-sizing: border-box;
 }
 
 .info {
@@ -65,7 +67,7 @@ body {
     font-weight: 800;
     font-size: 36px;
     line-height: 1.1;
-    width: 72%;
+    width: 100%;
 }
 
 .header-btn {
@@ -160,8 +162,12 @@ body {
     .columns {
         padding: 0 3%;
     }
-    .header-btn {
-        margin-right: 5%;
+    .controls {
+        margin: 0 5%;
+    }
+    .header-title {
+        padding: 0 5%;
+        font-size: 25px;
     }
 }
 
