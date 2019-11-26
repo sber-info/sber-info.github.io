@@ -162,14 +162,13 @@ body {
     .columns {
         padding: 0 3%;
     }
-    .header-btn {
-        margin: 20px 0 0 14%;
+    .controls {
+        margin: 0 5%;
     }
     .header-title {
         padding: 0 5%;
-    }
-    .header {
-        flex-wrap: wrap;
+        font-size: 25px;
+        width: 100% !important;
     }
 }
 
