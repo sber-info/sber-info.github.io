@@ -26,10 +26,10 @@ let app = new Vue({
                 this.cards = await fetch('https://raw.githubusercontent.com/sber-info/sber-info.github.io/master/board/json/Phrases.json')
                     .then(data => data.json())
                     
-                    this.cards.forEach(el => {
-                        el.id=this.id++
-                        console.log(el.id)
-                    });
+                    // this.cards.forEach(el => {
+                    //     el.id=this.id++
+                    //     console.log(el.id)
+                    // });
             }
             catch {
                 this.err = error
@@ -72,6 +72,11 @@ let app = new Vue({
 
     async mounted() {
         await this.getData()
+        this.cards.forEach(el => {
+            el.id=this.id++
+            console.log(el.id)
+        });
+        
         //сортировака 3х массивов
     },
 })  
