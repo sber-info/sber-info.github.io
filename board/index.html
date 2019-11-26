@@ -32,10 +32,10 @@
                     <!-- column1 { -->
                     <div class="column" id="col1">
                         <ul class="cards-list">
-                            <li v-for="card in cards" class="cards-item" :key="">
+                            <li v-for="(card, index) in cards" class="cards-item" :key="index+1" :id="index+1">
                                 <div class="card" @click="translate(card)">
-                                    <span class="card-title">{{ card.theme }} {{reverseCard}}</span>
-                                    <p class="card-text">{{ text(card) }} </p>
+                                    <span class="card-title">{{index+1}}. {{ card.theme }}</span>
+                                    <p class="card-text">{{ text(card) }}</p>
                                 </div>
                             </li>
                         </ul>
@@ -45,8 +45,8 @@
                         <ul class="cards-list">
                             <li class="cards-item">
                                 <div class="card">
-                                    <span class="card-title">{{ title }}</span>
-                                    <p class="card-text">{{ text }}</p>
+                                    <span class="card-title">Title</span>
+                                    <p class="card-text">Text</p>
                                 </div>
                             </li>
                         </ul>
@@ -56,8 +56,8 @@
                         <ul class="cards-list">
                             <li class="cards-item">
                                 <div class="card">
-                                    <span class="card-title">{{ title }}</span>
-                                    <p class="card-text">{{ text }}</p>
+                                    <span class="card-title">Title</span>
+                                    <p class="card-text">Text</p>
                                 </div>
                             </li>
                         </ul>

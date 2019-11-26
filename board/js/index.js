@@ -1,10 +1,6 @@
 let app = new Vue({
     el: '#app',
     data: {
-        title: 'Test',
-        // text: 'Text Text Text',
-        date: 5,
-        month: 'Jun',
         reverseCard: false,
         cards: null,
         err: '',
@@ -12,10 +8,10 @@ let app = new Vue({
 
     computed: {
         calcDate() {
-            return this.date = new Date().getDate()
+            return new Date().getDate()
         },
         calcMonth() {
-            return this.month = new Date().toLocaleString('en', { month: 'short' })
+            return new Date().toLocaleString('en', { month: 'short' })
         },
     },
 
@@ -47,6 +43,7 @@ let app = new Vue({
 
         text(card) {
             return card.rev ? card.translation : card.sourceText
+             
         },
 
         sortByWords() {
