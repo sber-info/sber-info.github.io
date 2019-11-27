@@ -5,6 +5,10 @@ let app = new Vue({
         cards: null,
         err: '',
         id: 1,
+        colors: ['#e1e1e1', '#36f8c7', '#36ecf8', '#f33162', '#ffff3c'],
+        column1: [],
+        column2: [],
+        column3: [],
     },
 
     computed: {
@@ -25,27 +29,32 @@ let app = new Vue({
             try {
                 this.cards = await fetch('https://raw.githubusercontent.com/sber-info/sber-info.github.io/master/board/json/Phrases.json')
                     .then(data => data.json())
-<<<<<<< HEAD
-                    
-                    // this.cards.forEach(el => {
-                    //     el.id=this.id++
-                    //     console.log(el.id)
-                    // });
-=======
 
-                this.cards.forEach(el => {
-                    el.id = this.id++
-                    console.log(el.id)
-                });
->>>>>>> 0526438d7cc7046279c987f995c2ea30eb991243
+                this.addId()
+                this.addRandomColor()
+                this.contenColums()
+
             }
             catch {
                 this.err = error
             }
         },
 
+        addId() {
+            this.cards.forEach(el => {
+                el.id = this.id++
+            });
+        },
+
+        addRandomColor() {
+            this.cards.forEach(el => {
+                el.color = this.colors[Math.floor(Math.random() * this.colors.length)]
+            });
+
+        },
+
         translate(card) {
-            Vue.set(card, 'rev', !card.rev)
+            this.$set(card, 'rev', !card.rev)
             this.cards.push(card)
             this.cards.pop(card)
             setTimeout(() => {
@@ -54,9 +63,15 @@ let app = new Vue({
             return
         },
 
+        removeCard(card) {
+            console.log(document.querySelector(`#${card.id}`.innerText))
+            if (confirm('Удалить карточку?')) {
+                this.cards.splice(this.cards.indexOf(card), 1)
+            }
+        },
+
         rev(card) {
             return card.rev ? card.translation : card.sourceText
-
         },
 
         hoverOn(card) {
@@ -67,23 +82,25 @@ let app = new Vue({
             document.getElementById(card.id).style.transform = 'scale(1)'
         },
 
-        sortByWords() {
-            // this.cards.sort((a, b) => {
-            //     a.sourceText.length > b.sourceText.length ? 1 : -1
-            // })
-            // this.cards.sort()
-            // return this.cards
-        },
+        contenColums() {
+            this.cards.forEach(el => {
+                let r = Math.floor(Math.random() * 3+1)
+                switch (r) {
+                    case 1: this.column1.push(el)
+                        break
+                    case 2: this.column2.push(el)
+                        break
+                    case 3: this.column3.push(el)
+                        break
+                }
+                // this.column.push(el)
+            });
+        }
 
     },
 
     async mounted() {
         await this.getData()
-        this.cards.forEach(el => {
-            el.id=this.id++
-            console.log(el.id)
-        });
-        
-        //сортировака 3х массивов
-    },
+    }
+
 })  

@@ -29,21 +29,16 @@
                 </header>
 
                 <main class="columns">
-
-
-
-
-
                     <!-- column1 { -->
                     <div class="column" id="col1" ref="col1">
                         <ul class="cards-list">
-                            <li v-for="(card) in cards" class="cards-item" :key="card.id" :id="card.id">
-                                <div class="card" :class="{'card-reverse': card.rev}" @click="translate(card)" @mouseover="hoverOn(card)" @mouseleave="hoverOf(card)">
-<<<<<<< HEAD
-                                    <span class="card-title" :class="{'card-text-reverse': card.rev}">{{ card.id }}. {{ card.theme }}</span>
-=======
-                                    <span class="card-title" :class="{'card-text-reverse': card.rev}">{{card.id}}. {{ card.theme }}</span>
->>>>>>> 0526438d7cc7046279c987f995c2ea30eb991243
+                            <li v-for="(card) in column1" class="cards-item" :key="card.id" :id="card.id"
+                                @dblclick="removeCard(card)">
+                                <div class="card" :class="{'card-reverse': card.rev}" @click="translate(card)"
+                                    @mouseover="hoverOn(card)" @mouseleave="hoverOf(card)"
+                                    :style="{'background-color': card.color}">
+                                    <span class="card-title" :class="{'card-text-reverse': card.rev}">{{ card.id }}.
+                                        {{ card.theme }}</span>
                                     <p class="card-text" :class="{'card-text-reverse': card.rev}">{{rev(card)}}</p>
                                 </div>
                             </li>
@@ -51,32 +46,39 @@
                     </div>
                     <!-- column1 } -->
 
-
-
-
-
-
-                    <div class="column" id="col2">
+                    <!-- column2 { -->
+                    <div class="column" id="col2" ref="col2">
                         <ul class="cards-list">
-                            <li class="cards-item">
-                                <div class="card">
-                                    <span class="card-title">theme</span>
-                                    <p class="card-text">TEXT</p>
+                            <li v-for="(card) in column2" class="cards-item" :key="card.id" :id="card.id"
+                                @dblclick="removeCard(card)">
+                                <div class="card" :class="{'card-reverse': card.rev}" @click="translate(card)"
+                                    @mouseover="hoverOn(card)" @mouseleave="hoverOf(card)"
+                                    :style="{'background-color': card.color}">
+                                    <span class="card-title" :class="{'card-text-reverse': card.rev}">{{ card.id }}.
+                                        {{ card.theme }}</span>
+                                    <p class="card-text" :class="{'card-text-reverse': card.rev}">{{rev(card)}}</p>
                                 </div>
                             </li>
                         </ul>
                     </div>
+                    <!-- column2 } -->
 
-                    <div class="column" id="col3">
-                        <ul class="cards-list">
-                            <li class="cards-item">
-                                <div class="card">
-                                    <span class="card-title">theme</span>
-                                    <p class="card-text">TEXT</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+                    <!-- column3 { -->
+                        <div class="column" id="col3" ref="col3">
+                            <ul class="cards-list">
+                                <li v-for="(card) in column3" class="cards-item" :key="card.id" :id="card.id"
+                                    @dblclick="removeCard(card)">
+                                    <div class="card" :class="{'card-reverse': card.rev}" @click="translate(card)"
+                                        @mouseover="hoverOn(card)" @mouseleave="hoverOf(card)"
+                                        :style="{'background-color': card.color}">
+                                        <span class="card-title" :class="{'card-text-reverse': card.rev}">{{ card.id }}.
+                                            {{ card.theme }}</span>
+                                        <p class="card-text" :class="{'card-text-reverse': card.rev}">{{rev(card)}}</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- column2 } -->
 
                 </main>
 
