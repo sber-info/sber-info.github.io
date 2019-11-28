@@ -33,6 +33,7 @@ let app = new Vue({
                 this.addId()
                 this.addRandomColor()
                 this.contenColums()
+                this.sortCards()
 
             }
             catch {
@@ -50,7 +51,6 @@ let app = new Vue({
             this.cards.forEach(el => {
                 el.color = this.colors[Math.floor(Math.random() * this.colors.length)]
             });
-
         },
 
         translate(card) {
@@ -64,9 +64,16 @@ let app = new Vue({
         },
 
         removeCard(card) {
-            console.log(document.querySelector(`#${card.id}`.innerText))
+            let col = document.getElementById(card.id).parentElement.parentElement.id
             if (confirm('Удалить карточку?')) {
-                this.cards.splice(this.cards.indexOf(card), 1)
+                switch (col) {
+                    case 'col1': this.column1.splice(this.column1.indexOf(card), 1)
+                        break
+                    case 'col2': this.column2.splice(this.column2.indexOf(card), 1)
+                        break
+                    case 'col3': this.column3.splice(this.column3.indexOf(card), 1)
+                        break
+                }
             }
         },
 
@@ -84,7 +91,7 @@ let app = new Vue({
 
         contenColums() {
             this.cards.forEach(el => {
-                let r = Math.floor(Math.random() * 3+1)
+                let r = Math.floor(Math.random() * 3 + 1)
                 switch (r) {
                     case 1: this.column1.push(el)
                         break
@@ -93,9 +100,42 @@ let app = new Vue({
                     case 3: this.column3.push(el)
                         break
                 }
-                // this.column.push(el)
             });
-        }
+        },
+
+        sortCards() {
+            this.column1.sort((a, b) => {
+                if (a.sourceText.split(' ').length - 1 > b.sourceText.split(' ').length - 1) {
+                    return -1;
+                }
+                if (a.sourceText.split(' ').length - 1 < b.sourceText.split(' ').length - 1) {
+                    return 1;
+                }
+
+                return 0;
+            });
+            this.column2.sort((a, b) => {
+                if (a.sourceText.split(' ').length - 1 > b.sourceText.split(' ').length - 1) {
+                    return -1;
+                }
+                if (a.sourceText.split(' ').length - 1 < b.sourceText.split(' ').length - 1) {
+                    return 1;
+                }
+
+                return 0;
+            });
+            this.column3.sort((a, b) => {
+                if (a.sourceText.split(' ').length - 1 > b.sourceText.split(' ').length - 1) {
+                    return -1;
+                }
+                if (a.sourceText.split(' ').length - 1 < b.sourceText.split(' ').length - 1) {
+                    return 1;
+                }
+
+                return 0;
+            });
+        },
+
 
     },
 

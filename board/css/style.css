@@ -175,6 +175,7 @@ body {
 
 .card-reverse {
     transform: rotateY(180deg);
-    filter: brightness(1.2);    
+    background-color:#fff !important;
+    border-right: 4px solid green;
 }
 

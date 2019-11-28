@@ -64,21 +64,21 @@
                     <!-- column2 } -->
 
                     <!-- column3 { -->
-                        <div class="column" id="col3" ref="col3">
-                            <ul class="cards-list">
-                                <li v-for="(card) in column3" class="cards-item" :key="card.id" :id="card.id"
-                                    @dblclick="removeCard(card)">
-                                    <div class="card" :class="{'card-reverse': card.rev}" @click="translate(card)"
-                                        @mouseover="hoverOn(card)" @mouseleave="hoverOf(card)"
-                                        :style="{'background-color': card.color}">
-                                        <span class="card-title" :class="{'card-text-reverse': card.rev}">{{ card.id }}.
-                                            {{ card.theme }}</span>
-                                        <p class="card-text" :class="{'card-text-reverse': card.rev}">{{rev(card)}}</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- column2 } -->
+                    <div class="column" id="col3" ref="col3">
+                        <ul class="cards-list">
+                            <li v-for="(card) in column3" class="cards-item" :key="card.id" :id="card.id"
+                                @dblclick="removeCard(card)">
+                                <div class="card" :class="{'card-reverse': card.rev}" @click="translate(card)"
+                                    @mouseover="hoverOn(card)" @mouseleave="hoverOf(card)"
+                                    :style="{'background-color': card.color}">
+                                    <span class="card-title" :class="{'card-text-reverse': card.rev}">{{ card.id }}.
+                                        {{ card.theme }}</span>
+                                    <p class="card-text" :class="{'card-text-reverse': card.rev}">{{rev(card)}}</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- column2 } -->
 
                 </main>
 
