@@ -82,6 +82,14 @@ body {
     transition: background-color .3s;
 }
 
+.new-card {
+    width: 300px;
+    min-height: 300px;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+}
+
 .header-btn:hover {
     background-color: #0989f6;
 }
@@ -178,4 +186,5 @@ body {
     background-color:#fff !important;
     border-right: 4px solid green;
 }
+
 
