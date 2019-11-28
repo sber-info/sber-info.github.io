@@ -1,7 +1,7 @@
 let app = new Vue({
     el: '#app',
     data: {
-        reverseCard: false,
+        trigger: false,
         cards: null,
         err: '',
         id: 1,
@@ -9,6 +9,9 @@ let app = new Vue({
         column1: [],
         column2: [],
         column3: [],
+        newTheme: '',
+        newEnText: '',
+        newRuText: '',
     },
 
     computed: {
@@ -34,9 +37,7 @@ let app = new Vue({
                 this.addRandomColor()
                 this.contenColums()
                 this.sortCards()
-
-            }
-            catch {
+            } catch {
                 this.err = error
             }
         },
@@ -67,11 +68,14 @@ let app = new Vue({
             let col = document.getElementById(card.id).parentElement.parentElement.id
             if (confirm('Удалить карточку?')) {
                 switch (col) {
-                    case 'col1': this.column1.splice(this.column1.indexOf(card), 1)
+                    case 'col1':
+                        this.column1.splice(this.column1.indexOf(card), 1)
                         break
-                    case 'col2': this.column2.splice(this.column2.indexOf(card), 1)
+                    case 'col2':
+                        this.column2.splice(this.column2.indexOf(card), 1)
                         break
-                    case 'col3': this.column3.splice(this.column3.indexOf(card), 1)
+                    case 'col3':
+                        this.column3.splice(this.column3.indexOf(card), 1)
                         break
                 }
             }
@@ -93,11 +97,14 @@ let app = new Vue({
             this.cards.forEach(el => {
                 let r = Math.floor(Math.random() * 3 + 1)
                 switch (r) {
-                    case 1: this.column1.push(el)
+                    case 1:
+                        this.column1.push(el)
                         break
-                    case 2: this.column2.push(el)
+                    case 2:
+                        this.column2.push(el)
                         break
-                    case 3: this.column3.push(el)
+                    case 3:
+                        this.column3.push(el)
                         break
                 }
             });
@@ -136,11 +143,22 @@ let app = new Vue({
             });
         },
 
+        createCard() {
+            if (this.newTheme != '') {
+                let newCard = {
+                    'theme': this.newTheme,
+                    'sourceText': this.newEnText,
+                    'translation': this.newRuText,
+                };
+                this.cards.push(newCard)
+            }
 
+        }
     },
 
     async mounted() {
         await this.getData()
+
     }
 
-})  
+})
