@@ -127,6 +127,7 @@
     .new-card__textarea {
         box-sizing: border-box;
         height: 50px;
+        max-height: 70px;
         width: 100%;
         outline: none;
         padding: 4px;
