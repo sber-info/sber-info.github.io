@@ -1,25 +1,30 @@
 const inputTable = document.getElementById('input_table');
 const outputBbcode = document.getElementById('output_bbcode');
 const visualBbcode = document.getElementById('visual_bbcode');
-// const reg = new RegExp('/</', 'i');
+// const reg = new RegExp('<.*>.*</*.>', 'gi');
+// const reg = new RegExp(']', 'g');
 
 function convert() {
-    let in_=inputTable.value;
     //здесь удалить лишние атрибуты
-    visualBbcode.innerHTML = in_;
+    visualBbcode.innerHTML = inputTable.value;
     //здесь замена синтаксиса
-    outputBbcode.innerText = in_
+    outputBbcode.innerText = inputTable.value
+
+
+        //.replace(/\/.*\>.*\</g, '')замена между тегами
+        //.repalce(//g, '')обнаружение одержания тега
+
         .replace(/\</g, '[')
         .replace(/\>/g, ']')
+        // .replace(reg, '')
+
         // .replace(/(\])\s*(\[)/g, '$1$2')
         // .replace(/(\s\s)/g, '')
         // .replace(/\]\.\[/g, '!')
-        .replace(/\].*\[/g, '][');
 };
 
 
-inputTable.addEventListener('keydown', convert);
-// document.addEventListener('keydown', function (e) {if (e.keyCode === 13) {convert}});
+inputTable.addEventListener('keyup', convert);
 
 let bbcodeDate = {
     tags: ['table', 'tbody', 'tr', 'td', 'b', 'i'],

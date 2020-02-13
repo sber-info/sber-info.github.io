@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0">
     <title>bbcode converter</title>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
@@ -31,6 +31,9 @@
             padding: 0 40px;
             background-color: #363636;
             box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .h1 {
@@ -76,6 +79,7 @@
         form {
             height: 800px;
         }
+        
 
         .input-wrap {
             display: flex;
@@ -87,10 +91,13 @@
         #visual_bbcode {
             padding: 0;
             motion: 0 auto;
-            overflow-y: scroll; 
+            overflow-y: scroll;
             min-width: 660px;
         }
 
+        .footer {
+            text-align: right;
+        }
     </style>
 
 </head>
@@ -98,26 +105,32 @@
 <body>
     <div class="wrap">
         <div class="container">
-            <h1 class="h1">bbcode converter</h1>
-            <form class="form" action="">
-                <div class="form-wrap">
-                    <div class="input-wrap">
-                        <label class="label" for="input_table">Ввод table</label>
-                        <textarea class="input" name="input_table" type="text" autofocus wrap="soft" id="input_table"
-                            value=""></textarea>
-                    </div>
+            <main>
+                <h1 class="h1">bbcode converter</h1>
+                <form class="form" action="">
+                    <div class="form-wrap">
+                        <div class="input-wrap">
+                            <label class="label" for="input_table">Ввод table</label>
+                            <textarea class="input" name="input_table" type="text" autofocus wrap="soft"
+                                id="input_table" value=""></textarea>
+                        </div>
 
-                    <div class="input-wrap">
-                        <label class="label" for="output_bbcode">Вывод bbcode</label>
-                        <textarea class="input" name="output_bbcode" type="text" wrap="soft" value="" id="output_bbcode"></textarea>
+                        <div class="input-wrap">
+                            <label class="label" for="output_bbcode">Вывод bbcode</label>
+                            <textarea class="input" name="output_bbcode" type="text" wrap="soft" value=""
+                                id="output_bbcode" readonly></textarea>
+                        </div>
+
+                        <div class="input-wrap">
+                            <p class="label">Visual</p>
+                            <div id="visual_bbcode" class="input"></div>
+                        </div>
                     </div>
-                    
-                    <div class="input-wrap">
-                        <p class="label" >Visual</p>
-                        <div id="visual_bbcode" class="input" ></div>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </main>
+            <footer class="footer">
+                <p class="label">Krasnov Kirill&#169;</p>
+            </footer>
         </div>
     </div>
     <script src="js/index.js"></script>
