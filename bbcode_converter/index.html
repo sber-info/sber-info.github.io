@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bbcode converter</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #363636;
+        }
+
+        .wrap {
+
+            color: #fff;
+            height: 100vh;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1920px;
+            min-width: 1110px;
+            width: 100%;
+            margin: 0 auto;
+            height: 100%;
+            padding: 0 40px;
+            background-color: #363636;
+            box-sizing: border-box;
+        }
+
+        .h1 {
+            margin: 0;
+            padding: 30px 0;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #67bf67;
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .input {
+            height: 100%;
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
+            margin: 0;
+            box-sizing: border-box;
+            outline: 0;
+            border: 1px solid #4a4848;
+            border-radius: 6px;
+            resize: none;
+            font-size: 14px;
+
+        }
+
+        .label {
+            padding: 10px 0;
+            color: #9ca09c;
+        }
+
+        .form-wrap {
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+            justify-content: space-between;
+        }
+
+        form {
+            height: 800px;
+        }
+
+        .input-wrap {
+            display: flex;
+            flex-direction: column;
+            width: calc((1920px - 660px)/2);
+            padding: 0 5px;
+        }
+
+        #visual_bbcode {
+            padding: 0;
+            motion: 0 auto;
+            overflow-y: scroll; 
+            min-width: 660px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="container">
+            <h1 class="h1">bbcode converter</h1>
+            <form class="form" action="">
+                <div class="form-wrap">
+                    <div class="input-wrap">
+                        <label class="label" for="input_table">Ввод table</label>
+                        <textarea class="input" name="input_table" type="text" autofocus wrap="soft" id="input_table"
+                            value=""></textarea>
+                    </div>
+
+                    <div class="input-wrap">
+                        <label class="label" for="output_bbcode">Вывод bbcode</label>
+                        <textarea class="input" name="output_bbcode" type="text" wrap="soft" value="" id="output_bbcode"></textarea>
+                    </div>
+                    
+                    <div class="input-wrap">
+                        <p class="label" >Visual</p>
+                        <div id="visual_bbcode" class="input" ></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+
+
+</html>
