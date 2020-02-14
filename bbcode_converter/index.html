@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, maximum-scale=1.0">
     <title>bbcode converter</title>
     <style>
-        @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap');
 
         body {
             margin: 0;
@@ -18,12 +18,11 @@
 
             color: #fff;
             height: 100vh;
-            font-family: 'Raleway', sans-serif;
+            font-family: 'Roboto', sans-serif;
             font-weight: 400;
         }
 
         .container {
-            max-width: 1920px;
             min-width: 1110px;
             width: 100%;
             margin: 0 auto;
@@ -58,7 +57,7 @@
             box-sizing: border-box;
             outline: 0;
             border: 1px solid #4a4848;
-            border-radius: 6px;
+            border-radius: 3px;
             resize: none;
             font-size: 14px;
 
@@ -79,25 +78,67 @@
         form {
             height: 800px;
         }
-        
+
 
         .input-wrap {
             display: flex;
             flex-direction: column;
-            width: calc((1920px - 660px)/2);
+            width: 100%;
             padding: 0 5px;
         }
 
         #visual_bbcode {
-            padding: 0;
             motion: 0 auto;
             overflow-y: scroll;
-            min-width: 660px;
+            min-width: 800px;
+            background-color: #fff;
+            color: #000;
+            border: 0;
+            padding: 0;
+            height: 100%;
+            max-height: 637px;
+        }
+
+        .visual-header {
+            background-color: #f3f5f7;
+            padding: 20px;
+            color: #000;
+            border-radius: 3px 3px 0 0;
+        }
+
+        .visual-header__type {
+            font-size: 16px;
+            line-height: 1.3;
+            font-weight: 500;
+            padding: 0 0 15px 0;
+            display: block;
+        }
+
+        .visual-header__date-wrap {
+            color: #74797c;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .visual-header__theme {
+            color: #74797c;
+            font-size: 14px;
+        }
+
+
+        .visual-wrap {
+            height: 100%;
+            background-color: #fbfbfb;
+            border: 1px solid #e5e5e5;
+            border-radius: 0 0 3px 3px;
+            padding: 15px 10px 0 10px;
         }
 
         .footer {
             text-align: right;
         }
+
     </style>
 
 </head>
@@ -122,8 +163,21 @@
                         </div>
 
                         <div class="input-wrap">
+
                             <p class="label">Visual</p>
-                            <div id="visual_bbcode" class="input"></div>
+                            <div class="visual-header">
+                                <span class="visual-header__type">Сервисное уведомление</span>
+                                <p class="visual-header__theme">У&nbsp;сотрудника Вашей компании истек срок действия
+                                    паспорта</p>
+                                <div class="visual-header__date-wrap">
+                                    <span class="visual-header__date">&#8470;&nbsp;1 &bull; Получено&nbsp;01.01.2020,
+                                        08:30</span>
+                                    <span>Входящее</span>
+                                </div>
+                            </div>
+                            <div class="visual-wrap">
+                                <div id="visual_bbcode" class="input"></div>
+                            </div>
                         </div>
                     </div>
                 </form>
