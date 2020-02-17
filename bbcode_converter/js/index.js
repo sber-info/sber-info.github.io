@@ -20,11 +20,13 @@ function convert() {
         .replace(/(\<)a\s.*?class="button".*?\shref="(.*?)".*?(\>)(.*?)(\<\/)a\>/g, '$1urlb=$2$3$4$5urlb$3')
         .replace(/(\<)a\s.*?href="(.*?)"\s.*?class="button".*?(\>)(.*?)(\<\/)a\>/g, '$1urlb=$2$3$4$5urlb$3')
         .replace(/(\<)a\s.*?href="(.*?)".*?(\>)(.*?)(\<\/)a\>/g, '$1urln=$2$3$4$5urln$3')
+        .replace(/(\<)li.*?(\>)(.*?)(\<\/)li\>/g, '$1*$2$3$4*$2')
 
     .replace(/(\<\w*)\s.*?font-size: (..)px.*?(\>)(.*?)(\<\/\w*\>)/g, '$1$3<size=$2>$4</size>$5')
         .replace(/(\<\w*)\s.*?color: (#.*?)[;"].*?(\>)(.*?)(\<\/\w*\>)/g, '$1$3<color=$2>$4</color>$5')
         .replace(/(\<\w*)\s.*?text-align: (left|center|right)[;"].*?(\>)(.*?)(\<\/\w*\>)/g, '$1$3<$2>$4</$2>$5')
-        .replace(/(<\w*)\s.*?(class="text").*?(\>)/g, '$1 class="text"$3')
+        // .replace(/(\<\w*)\s.*?[.*?(class="text")].*?text-align: (left|center|right)[;"].*?(\>)(.*?)(\<\/\w*\>)/g, '$1 class="text"$3<$2>$4</$2>$5')
+        // .replace(/(<\w*)\s.*?(class="text").*?(\>)/g, '$1 class="text"$3')
 
     .replace(/\</g, '[')
         .replace(/\>/g, ']')
