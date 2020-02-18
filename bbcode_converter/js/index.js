@@ -20,7 +20,9 @@ function convert() {
         .replace(/(\<)a\s.*?class="button".*?\shref="(.*?)".*?(\>)(.*?)(\<\/)a\>/g, '$1urlb=$2$3$4$5urlb$3')
         .replace(/(\<)a\s.*?href="(.*?)"\s.*?class="button".*?(\>)(.*?)(\<\/)a\>/g, '$1urlb=$2$3$4$5urlb$3')
         .replace(/(\<)a\s.*?href="(.*?)".*?(\>)(.*?)(\<\/)a\>/g, '$1urln=$2$3$4$5urln$3')
-        .replace(/(\<)li.*?(\>)(.*?)(\<\/)li\>/g, '$1*$2$3$4*$2')
+        .replace(/(\<)li.*?(\>)(.*?)\<\/li\>/g, '$1*$2$3')
+        .replace(/(\<)ul.*?(\>)(.*?)(\<\/)ul\>/g, '$1list$2$3$4list$2')
+        .replace(/(\<)ol.*?(\>)(.*?)(\<\/)ol\>/g, '$1list=ol$2$3$4list=ol$2')
 
     .replace(/(\<\w*)\s.*?font-size: (..)px.*?(\>)(.*?)(\<\/\w*\>)/g, '$1$3<size=$2>$4</size>$5')
         .replace(/(\<\w*)\s.*?color: (#.*?)[;"].*?(\>)(.*?)(\<\/\w*\>)/g, '$1$3<color=$2>$4</color>$5')
