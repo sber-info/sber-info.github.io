@@ -16,7 +16,7 @@ function convert() {
     //здесь замена синтаксиса
     outputBbcode.innerText = inputTable.value
         .replace(/\n*/g, '')
-        .replace(/(\<)img\s.*?src="(.*?)".*?(\>)/g, '$1image$3$2$1/image$3')
+        .replace(/(\<)img\s.*?src="(.*?)".*?(\>)/g, '$1img$3$2$1/img$3')
         .replace(/(\<)a\s.*?class="button".*?\shref="(.*?)".*?(\>)(.*?)(\<\/)a\>/g, '$1urlb=$2$3$4$5urlb$3')
         .replace(/(\<)a\s.*?href="(.*?)"\s.*?class="button".*?(\>)(.*?)(\<\/)a\>/g, '$1urlb=$2$3$4$5urlb$3')
         .replace(/(\<)a\s.*?href="(.*?)".*?(\>)(.*?)(\<\/)a\>/g, '$1urln=$2$3$4$5urln$3')
