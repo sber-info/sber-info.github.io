@@ -38,7 +38,7 @@ function selectedItem(el) {
 function filter() {
   let a = myDropdown.getElementsByTagName('a');
   for (let i = 0; i < a.length; i++) {
-    if (a[i].innerHTML.indexOf(myInput.value) > -1) {
+    if (a[i].innerHTML.toUpperCase().indexOf(myInput.value.toUpperCase()) > -1) {
       console.log(a[i].innerHTML);
       a[i].style.display = 'block'
     }
