@@ -23,17 +23,23 @@
                     </div>
                     <h2 class="header-title">New phrases for today</h2>
                     <div class="controls">
-                        <img class="info" src="img/info.png" alt="">
+                        <a href="info.html">
+                            <img class="info" src="img/info.png" alt="">
+                        </a>
                         <button @click="trigger=true" title="Create new card" class="header-btn">New card</button>
                     </div>
                     <div v-if="trigger" class="new-card">
                         <form action="">
                             <span title="Close" class="new-card__close" @click="trigger=false">X</span>
                             <p class="new-card__title">New card</p>
-                            <input id="newTheme" class="new-card__input" type="text" placeholder="Theme" v-model="newTheme">
-                            <textarea class="new-card__textarea" name="" id="en" cols="30" rows="10" placeholder="English text" v-model="newEnText"></textarea>
-                            <textarea class="new-card__textarea" name="" id="ru" cols="30" rows="10" placeholder="Russian text" v-model="newRuText"></textarea>
-                            <button title="Create" id="create" class="new-card__btn" type="submit" @click="createCard">Create</button>
+                            <input id="newTheme" class="new-card__input" type="text" placeholder="Theme"
+                                v-model="newTheme">
+                            <textarea class="new-card__textarea" name="" id="en" cols="30" rows="10"
+                                placeholder="English text" v-model="newEnText"></textarea>
+                            <textarea class="new-card__textarea" name="" id="ru" cols="30" rows="10"
+                                placeholder="Russian text" v-model="newRuText"></textarea>
+                            <button title="Create" id="create" class="new-card__btn" type="submit"
+                                @click="createCard">Create</button>
                         </form>
                     </div>
                 </header>
@@ -42,8 +48,11 @@
                     <!-- column1 { -->
                     <div class="column" id="col1" ref="col1">
                         <ul class="cards-list">
-                            <li v-for="(card) in column1" class="cards-item" :key="card.id" :id="card.id" @dblclick="removeCard(card)">
-                                <div class="card" :class="{'card-reverse': card.rev}" @click="translate(card)" @mouseover="hoverOn(card)" @mouseleave="hoverOf(card)" :style="{'background-color': card.color}">
+                            <li v-for="(card) in column1" class="cards-item" :key="card.id" :id="card.id"
+                                @dblclick="removeCard(card)">
+                                <div class="card" :class="{'card-reverse': card.rev}" @click="translate(card)"
+                                    @mouseover="hoverOn(card)" @mouseleave="hoverOf(card)"
+                                    :style="{'background-color': card.color}">
                                     <span class="card-title" :class="{'card-text-reverse': card.rev}">
                                         {{ card.theme }}</span>
                                     <p class="card-text" :class="{'card-text-reverse': card.rev}">{{rev(card)}}</p>
@@ -56,8 +65,11 @@
                     <!-- column2 { -->
                     <div class="column" id="col2" ref="col2">
                         <ul class="cards-list">
-                            <li v-for="(card) in column2" class="cards-item" :key="card.id" :id="card.id" @dblclick="removeCard(card)">
-                                <div class="card" :class="{'card-reverse': card.rev}" @click="translate(card)" @mouseover="hoverOn(card)" @mouseleave="hoverOf(card)" :style="{'background-color': card.color}">
+                            <li v-for="(card) in column2" class="cards-item" :key="card.id" :id="card.id"
+                                @dblclick="removeCard(card)">
+                                <div class="card" :class="{'card-reverse': card.rev}" @click="translate(card)"
+                                    @mouseover="hoverOn(card)" @mouseleave="hoverOf(card)"
+                                    :style="{'background-color': card.color}">
                                     <span class="card-title" :class="{'card-text-reverse': card.rev}">{{ card.id }}.
                                         {{ card.theme }}</span>
                                     <p class="card-text" :class="{'card-text-reverse': card.rev}">{{rev(card)}}</p>
@@ -70,8 +82,11 @@
                     <!-- column3 { -->
                     <div class="column" id="col3" ref="col3">
                         <ul class="cards-list">
-                            <li v-for="(card) in column3" class="cards-item" :key="card.id" :id="card.id" @dblclick="removeCard(card)">
-                                <div class="card" :class="{'card-reverse': card.rev}" @click="translate(card)" @mouseover="hoverOn(card)" @mouseleave="hoverOf(card)" :style="{'background-color': card.color}">
+                            <li v-for="(card) in column3" class="cards-item" :key="card.id" :id="card.id"
+                                @dblclick="removeCard(card)">
+                                <div class="card" :class="{'card-reverse': card.rev}" @click="translate(card)"
+                                    @mouseover="hoverOn(card)" @mouseleave="hoverOf(card)"
+                                    :style="{'background-color': card.color}">
                                     <span class="card-title" :class="{'card-text-reverse': card.rev}">{{ card.id }}.
                                         {{ card.theme }}</span>
                                     <p class="card-text" :class="{'card-text-reverse': card.rev}">{{rev(card)}}</p>
