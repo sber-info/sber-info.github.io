@@ -1,57 +1,45 @@
-const items = document.getElementsByClassName('dropdown_item')
-const myInput = document.getElementById('myInput')
-const myDropdown = document.getElementById('myDropdown')
-const radio = document.getElementsByName('radio-button')
+const items = document.querySelectorAll('#myDropdown a.dropdown_item');
+const myInput = document.getElementById('myInput');
+const dropdownList = document.querySelector('.dropdown_list');
+const radioEnabled = document.getElementById('enabled');
+const radioDisabled = document.getElementById('disabled');
+
+radioEnabled.onclick=()=>{myInput.disabled = ''};
+radioDisabled.onclick=()=>{myInput.disabled = 'disabled'};
 
 function visibleAllList() {
-  for (let i = 0; i < items.length; i++) {
-    items[i].style.display = 'block';
-  }
-}
-
-function enabledDisabled() {
-  if (document.getElementById('disabled').checked == true) {
-    myInput.disabled = 'disabled';
-  }
-  if (document.getElementById('enabled').checked == true) {
-    myInput.disabled = '';
-  }
+  items.forEach(element => {
+    element.classList.remove('hide-element')
+  });
 };
 
-function hideAllList(el) {
-  if ((el.target.id == !'myDropdown') && (document.getElementById('enabled').checked == true)) {
-    for (let i = 0; i < items.length; i++) {
-      items[i].style.display = 'none';
-    }
-  }
-}
-
-function selectedItem(el) {
-  if (el.target.className == 'dropdown_item') {
-    myInput.value = document.getElementById(el.target.id).innerText;
-    for (let i = 0; i < items.length; i++) {
-      items[i].style.display = 'none';
-    }
+function hideAllList() {
+  if ((event.target.id == !'dropdownList') && (document.getElementById('enabled').checked === true)) {
+    items.forEach(element => {
+      element.classList.add('hide-element');
+    });
   };
 };
 
+function selectedItem() {
+  myInput.value = document.getElementById(event.target.id).innerText;
+  items.forEach(element => {
+    element.classList.add('hide-element');
+  });
+};
+
 function filter() {
-  let a = myDropdown.getElementsByTagName('a');
-  for (let i = 0; i < a.length; i++) {
-    if (a[i].innerHTML.toUpperCase().indexOf(myInput.value.toUpperCase()) > -1) {
-      console.log(a[i].innerHTML);
-      a[i].style.display = 'block'
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].innerHTML.toUpperCase().indexOf(event.target.value.toUpperCase()) > -1) {
+      items[i].classList.remove('hide-element');
     }
     else {
-      a[i].style.display = 'none';
+      items[i].classList.add('hide-element');
     };
-  }
-}
+  };
+};
 
-myInput.addEventListener('click', visibleAllList);
-document.addEventListener('click', (el) => hideAllList(el));
-document.addEventListener('click', (el) => selectedItem(el));
-document.addEventListener('click', enabledDisabled);
-myInput.addEventListener('keyup', filter);
-
-
+myInput.addEventListener('click', visibleAllList); //+
+document.addEventListener('click', hideAllList); //+
+dropdownList.addEventListener('click', selectedItem); //+
+myInput.addEventListener('keyup', filter); //+
