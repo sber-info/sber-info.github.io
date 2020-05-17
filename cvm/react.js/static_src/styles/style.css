@@ -52,6 +52,10 @@ body {
   border-top: 1px solid #f3f3f3;
 }
 
+.dropdown_item a {
+  display: block;
+}
+
 .dropdown_item:hover {
   background-color: #cff1ea;
 }
